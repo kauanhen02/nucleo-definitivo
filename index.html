@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Núcleo Facilities</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="src/style.css"/>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION (compartilhada)
+     ============================================================ -->
+<nav>
+  <a class="logo" onclick="showPage('home')">
+    <img class="logo-nav" src="src/assets/images/logo.png" alt="Núcleo Facilities"/>
+  </a>
+
+  <ul class="nav-links">
+    <li><a id="nav-home"         class="active"       onclick="showPage('home')">Home</a></li>
+    <li><a id="nav-quemsomos"                         onclick="showPage('quemsomos')">Quem somos</a></li>
+    <li><a id="nav-servicos"                          onclick="showPage('servicos')">Serviços</a></li>
+    <li><a id="nav-diferenciais"                      onclick="showPage('diferenciais')">Diferenciais</a></li>
+    <li><a id="nav-contato"                           onclick="showPage('contato')">Contato</a></li>
+  </ul>
+
+  <div class="nav-social">
+    <a href="#" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    </a>
+    <a href="#" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </a>
+    <a href="#" aria-label="YouTube">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+    </a>
+  </div>
+
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-menu-logo">
+    <img src="src/assets/images/logo.png" alt="Núcleo Facilities"/>
+  </div>
+  <ul>
+    <li><a id="mnav-home"         class="active" onclick="showPage('home');toggleMenu()">Home</a></li>
+    <li><a id="mnav-quemsomos"                   onclick="showPage('quemsomos');toggleMenu()">Quem somos</a></li>
+    <li><a id="mnav-servicos"                    onclick="showPage('servicos');toggleMenu()">Serviços</a></li>
+    <li><a id="mnav-diferenciais"                onclick="showPage('diferenciais');toggleMenu()">Diferenciais</a></li>
+    <li><a id="mnav-contato"                     onclick="showPage('contato');toggleMenu()">Contato</a></li>
+  </ul>
+  <div class="mobile-menu-social">
+    <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+    <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+    <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+  </div>
+</div>
+
+<!-- ============================================================
+     COMPONENTE: HERO (reutilizado em todas as páginas)
+     ============================================================ -->
+<template id="tpl-hero">
+  <section class="hero">
+    <img class="hero-bg-img" src="src/assets/images/hero-bg.jpg" alt=""/>
+    <div class="hero-content">
+      <h1>Terceirização de mão de obra com excelência operacional</h1>
+      <p>Soluções completas para empresas que precisam de eficiência, continuidade e controle na operação, sem abrir mão da qualidade.</p>
+      <a href="#" class="btn-primary">Falar com um especialista</a>
+    </div>
+  </section>
+</template>
+
+<template id="tpl-logos">
+<div class="clientes-carousel-section">
+  <div class="clientes-carousel-header">
+    <p class="clientes-eyebrow">Quem confia na Núcleo</p>
+    <h2>Empresas que escolheram a excelência operacional</h2>
+    <p>Construímos relações de longo prazo com empresas que valorizam continuidade, qualidade e um parceiro que nunca deixa postos descobertos.</p>
+  </div>
+  <div class="clientes-carousel-wrap">
+    <button class="clientes-carousel-btn clientes-prev" aria-label="Anterior">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <div class="clientes-stage">
+      <div class="clientes-slide active">
+          <div class="clientes-slide-logo">
+            <img src="src/assets/images/cliente-vw.png" alt="VW"/>
+          </div>
+          <p class="clientes-slide-text">"Parceria sólida, profissionais preparados e reposição ágil. A Núcleo entregou exatamente o que prometeu."</p>
+          <span class="clientes-slide-name">Volkswagen</span>
+        </div>
+      <div class="clientes-slide">
+          <div class="clientes-slide-logo">
+            <img src="src/assets/images/cliente-sinter.png" alt="S Sinter"/>
+          </div>
+          <p class="clientes-slide-text">"Desde que firmamos contrato, nunca tivemos um posto descoberto. Isso vale muito para a nossa operação."</p>
+          <span class="clientes-slide-name">S Sinter</span>
+        </div>
+      <div class="clientes-slide">
+          <div class="clientes-slide-logo">
+            <img src="src/assets/images/cliente-ginger.png" alt="Ginger"/>
+          </div>
+          <p class="clientes-slide-text">"A qualidade dos profissionais e a atenção da gestão fazem a diferença no dia a dia da nossa empresa."</p>
+          <span class="clientes-slide-name">Ginger Fragrâncias</span>
+        </div>
+      <div class="clientes-slide">
+          <div class="clientes-slide-logo">
+            <img src="src/assets/images/cliente-clicknet.png" alt="Clicknet"/>
+          </div>
+          <p class="clientes-slide-text">"Agilidade na resolução de problemas e equipe sempre alinhada ao nosso padrão. Recomendamos sem hesitar."</p>
+          <span class="clientes-slide-name">Clicknet Internet</span>
+        </div>
+    </div>
+    <button class="clientes-carousel-btn clientes-next" aria-label="Próximo">
+      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+  <div class="clientes-dots"></div>
+</div>
+</template>
+
+<template id="tpl-footer">
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img class="logo-footer" src="src/assets/images/logo.png" alt="Núcleo Facilities"/>
+        </div>
+        <p class="tagline">Mais controle, menos<br>problemas, mais resultado.</p>
+        <p>Atuamos em todo o território nacional, desenvolvendo soluções estratégicas para empresas que buscam eficiência, qualidade e confiança operacional.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Soluções</h4>
+        <ul>
+          <li><a onclick="showPage('servicos')">Limpeza</a></li>
+          <li><a onclick="showPage('servicos')">Portaria</a></li>
+          <li><a onclick="showPage('servicos')">Recepção</a></li>
+          <li><a onclick="showPage('servicos')">Jardinagem</a></li>
+          <li><a onclick="showPage('servicos')">Terceirização de mão de obra</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Links rápidos</h4>
+        <ul>
+          <li><a onclick="showPage('home')">Home</a></li>
+          <li><a onclick="showPage('quemsomos')">Quem somos</a></li>
+          <li><a onclick="showPage('servicos')">Serviços</a></li>
+          <li><a onclick="showPage('diferenciais')">Diferenciais</a></li>
+          <li><a onclick="showPage('contato')">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Redes sociais</h4>
+        <div class="footer-social">
+          <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        </div>
+        <div class="footer-cta">
+          <p>Vamos conversar sobre<br>o seu próximo projeto?</p>
+          <a href="#" class="btn-footer">Fale conosco <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Núcleo facilities — Todos os direitos reservados</p>
+      <div class="footer-bottom-links">
+        <a href="#">Política de Privacidade</a>
+        <span class="footer-bottom-sep">|</span>
+        <a href="#">Termos de uso</a>
+      </div>
+    </div>
+  </footer>
+</template>
+
+<!-- ============================================================
+     PAGE: HOME
+     ============================================================ -->
+<div id="page-home" class="page active">
+  <section class="hero">
+    <img class="hero-bg-img" src="src/assets/images/hero-bg.jpg" alt=""/>
+    <div class="hero-content">
+      <h1>Terceirização de mão de obra com excelência operacional</h1>
+      <p>Soluções completas para empresas que precisam de eficiência, continuidade e controle na operação, sem abrir mão da qualidade.</p>
+      <a href="#" class="btn-primary">Falar com um especialista</a>
+    </div>
+  </section>
+
+<div class="clientes-carousel-section">
+  <div class="clientes-carousel-header">
+    <p class="clientes-eyebrow">Quem confia na Núcleo</p>
+    <h2>Empresas que escolheram a excelência operacional</h2>
+    <p>Construímos relações de longo prazo com empresas que valorizam continuidade, qualidade e um parceiro que nunca deixa postos descobertos.</p>
+  </div>
+  <div class="clientes-carousel-wrap">
+    <button class="clientes-carousel-btn clientes-prev" aria-label="Anterior">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <div class="clientes-stage">
+      <div class="clientes-slide active">
+          <div class="clientes-slide-logo">
+            <img src="src/assets/images/cliente-vw.png" alt="VW"/>
+          </div>
+          <p class="clientes-slide-text">"Parceria sólida, profissionais preparados e reposição ágil. A Núcleo entregou exatamente o que prometeu."</p>
+          <span class="clientes-slide-name">Volkswagen</span>
+        </div>
+      <div class="clientes-slide">
+          <div class="clientes-slide-logo">
+            <img src="src/assets/images/cliente-sinter.png" alt="S Sinter"/>
+          </div>
+          <p class="clientes-slide-text">"Desde que firmamos contrato, nunca tivemos um posto descoberto. Isso vale muito para a nossa operação."</p>
+          <span class="clientes-slide-name">S Sinter</span>
+        </div>
+      <div class="clientes-slide">
+          <div class="clientes-slide-logo">
+            <img src="src/assets/images/cliente-ginger.png" alt="Ginger"/>
+          </div>
+          <p class="clientes-slide-text">"A qualidade dos profissionais e a atenção da gestão fazem a diferença no dia a dia da nossa empresa."</p>
+          <span class="clientes-slide-name">Ginger Fragrâncias</span>
+        </div>
+      <div class="clientes-slide">
+          <div class="clientes-slide-logo">
+            <img src="src/assets/images/cliente-clicknet.png" alt="Clicknet"/>
+          </div>
+          <p class="clientes-slide-text">"Agilidade na resolução de problemas e equipe sempre alinhada ao nosso padrão. Recomendamos sem hesitar."</p>
+          <span class="clientes-slide-name">Clicknet Internet</span>
+        </div>
+    </div>
+    <button class="clientes-carousel-btn clientes-next" aria-label="Próximo">
+      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+  <div class="clientes-dots"></div>
+</div>
+
+  <div class="section-split">
+    <img class="split-img" src="src/assets/images/operacao.jpg" alt="Operação"/>
+    <div class="split-text">
+      <h2>Terceirizar não deve ser um risco operacional.</h2>
+      <p>Nossa atuação é estruturada para garantir continuidade, qualidade e agilidade na gestão de equipes, permitindo que sua empresa foque no que realmente importa: crescimento, estratégia e resultado.</p>
+      <a class="link-arrow" onclick="showPage('servicos')">Nossas Soluções ↗</a>
+    </div>
+  </div>
+  <hr class="section-divider"/>
+
+  <div class="section-split reverse">
+    <img class="split-img" src="src/assets/images/proposta.jpg" alt="Proposta de valor"/>
+    <div class="split-text">
+      <h2>Proposta de valor</h2>
+      <p>Transformamos a terceirização em uma operação confiável, previsível e eficiente.</p>
+      <p>Com uma gestão próxima e decisões ágeis, garantimos que cada posto esteja sempre coberto, com profissionais preparados, motivados e alinhados ao padrão da sua empresa.</p>
+      <a class="link-arrow" onclick="showPage('quemsomos')">Conheça a Núcleo ↗</a>
+    </div>
+  </div>
+  <hr class="section-divider"/>
+
+  <div class="services-section">
+    <div class="services-list">
+      <img class="services-logo" src="src/assets/images/logo.png" alt="Núcleo Facilities"/>
+      <div class="service-item"><span class="arrow-icon">→</span> Limpeza</div>
+      <div class="service-item"><span class="arrow-icon">→</span> Portaria</div>
+      <div class="service-item"><span class="arrow-icon">→</span> Recepção</div>
+      <div class="service-item"><span class="arrow-icon">→</span> Jardinagem</div>
+      <div class="service-item"><span class="arrow-icon">→</span> Terceirização de mão de obra em geral</div>
+      <a class="link-arrow" style="margin-top:20px;" onclick="showPage('servicos')">Conheça a Núcleo ↗</a>
+    </div>
+    <img class="services-img" src="src/assets/images/servico-portaria.jpg" alt="Portaria profissional"/>
+  </div>
+  <hr class="section-divider"/>
+
+  <div class="diferenciais-section">
+    <img class="diferenciais-img" src="src/assets/images/servico-jardim.jpg" alt="Jardinagem"/>
+    <div class="diferenciais-text">
+      <h2>Diferenciais</h2>
+      <div class="diferencial-item"><strong>Nunca deixar postos descobertos</strong><span>Reposição imediata e gestão ativa de equipe</span></div>
+      <div class="diferencial-item"><strong>Funcionários motivados</strong><span>Pagamento antecipado e valorização humana</span></div>
+      <div class="diferencial-item"><strong>Agilidade operacional</strong><span>Decisões rápidas e resolução eficiente</span></div>
+      <div class="diferencial-item"><strong>Padrão de qualidade</strong><span>Profissionais treinados, educados e preparados</span></div>
+      <a class="link-arrow" onclick="showPage('diferenciais')">Conheça a Núcleo ↗</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img class="logo-footer" src="src/assets/images/logo.png" alt="Núcleo Facilities"/>
+        </div>
+        <p class="tagline">Mais controle, menos<br>problemas, mais resultado.</p>
+        <p>Atuamos em todo o território nacional, desenvolvendo soluções estratégicas para empresas que buscam eficiência, qualidade e confiança operacional.</p>
+      </div>
+      <div class="footer-col"><h4>Soluções</h4><ul><li><a onclick="showPage('servicos')">Limpeza</a></li><li><a onclick="showPage('servicos')">Portaria</a></li><li><a onclick="showPage('servicos')">Recepção</a></li><li><a onclick="showPage('servicos')">Jardinagem</a></li><li><a onclick="showPage('servicos')">Terceirização de mão de obra</a></li></ul></div>
+      <div class="footer-col"><h4>Links rápidos</h4><ul><li><a onclick="showPage('home')">Home</a></li><li><a onclick="showPage('quemsomos')">Quem somos</a></li><li><a onclick="showPage('servicos')">Serviços</a></li><li><a onclick="showPage('diferenciais')">Diferenciais</a></li><li><a onclick="showPage('contato')">Contato</a></li></ul></div>
+      <div class="footer-col"><h4>Redes sociais</h4><div class="footer-social"><a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a><a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a><a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a></div><div class="footer-cta"><p>Vamos conversar sobre<br>o seu próximo projeto?</p><a href="#" class="btn-footer">Fale conosco <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></a></div></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 Núcleo facilities — Todos os direitos reservados</p><div class="footer-bottom-links"><a href="#">Política de Privacidade</a><span class="footer-bottom-sep">|</span><a href="#">Termos de uso</a></div></div>
+  </footer>
+</div>
+
+<!-- ============================================================
+     PAGE: QUEM SOMOS
+     ============================================================ -->
+<div id="page-quemsomos" class="page">
+  <section class="hero"><img class="hero-bg-img" src="src/assets/images/hero-bg.jpg" alt=""/><div class="hero-content"><h1>Terceirização de mão de obra com excelência operacional</h1><p>Soluções completas para empresas que precisam de eficiência, continuidade e controle na operação, sem abrir mão da qualidade.</p><a href="#" class="btn-primary">Falar com um especialista</a></div></section>
+  <div class="clientes-carousel-section">
+  <div class="clientes-carousel-header">
+    <p class="clientes-eyebrow">Quem confia na Núcleo</p>
+    <h2>Empresas que escolheram a excelência operacional</h2>
+    <p>Construímos relações de longo prazo com empresas que valorizam continuidade, qualidade e um parceiro que nunca deixa postos descobertos.</p>
+  </div>
+  <div class="clientes-carousel-wrap">
+    <button class="clientes-carousel-btn clientes-prev" aria-label="Anterior">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <div class="clientes-stage">
+      <div class="clientes-slide active">
+          <div class="clientes-slide-logo">
+            <img src="src/assets/images/cliente-vw.png" alt="VW"/>
+          </div>
+          <p class="clientes-slide-text">"Parceria sólida, profissionais preparados e reposição ágil. A Núcleo entregou exatamente o que prometeu."</p>
+          <span class="clientes-slide-name">Volkswagen</span>
+        </div>
+      <div class="clientes-slide">
+          <div class="clientes-slide-logo">
+            <img src="src/assets/images/cliente-sinter.png" alt="S Sinter"/>
+          </div>
+          <p class="clientes-slide-text">"Desde que firmamos contrato, nunca tivemos um posto descoberto. Isso vale muito para a nossa operação."</p>
+          <span class="clientes-slide-name">S Sinter</span>
+        </div>
+      <div class="clientes-slide">
+          <div class="clientes-slide-logo">
+            <img src="src/assets/images/cliente-ginger.png" alt="Ginger"/>
+          </div>
+          <p class="clientes-slide-text">"A qualidade dos profissionais e a atenção da gestão fazem a diferença no dia a dia da nossa empresa."</p>
+          <span class="clientes-slide-name">Ginger Fragrâncias</span>
+        </div>
+      <div class="clientes-slide">
+          <div class="clientes-slide-logo">
+            <img src="src/assets/images/cliente-clicknet.png" alt="Clicknet"/>
+          </div>
+          <p class="clientes-slide-text">"Agilidade na resolução de problemas e equipe sempre alinhada ao nosso padrão. Recomendamos sem hesitar."</p>
+          <span class="clientes-slide-name">Clicknet Internet</span>
+        </div>
+    </div>
+    <button class="clientes-carousel-btn clientes-next" aria-label="Próximo">
+      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+  <div class="clientes-dots"></div>
+</div>
+
+  <div class="qs-intro">
+    <div class="qs-intro-left">
+      <div class="qs-brand-display">
+        <img class="logo-qs" src="src/assets/images/logo.png" alt="Núcleo Facilities"/>
+      </div>
+    </div>
+    <div class="qs-intro-right">
+      <h2>Quem somos</h2>
+      <p>Somos uma empresa especializada em terceirização de mão de obra, fundada em 2015, com o objetivo de oferecer soluções eficientes e confiáveis para empresas que buscam qualidade, continuidade e organização operacional.</p>
+      <p>Nossa atuação é baseada em gestão ativa, proximidade com o cliente e agilidade na tomada de decisões, garantindo que cada operação funcione com estabilidade, profissionais preparados e reposição rápida quando necessário.</p>
+      <p>Acreditamos que a terceirização deve trazer tranquilidade e eficiência para a empresa contratante. Por isso, cuidamos de toda a gestão de equipe, permitindo que nossos clientes foquem na estratégia, no crescimento e nos resultados do seu negócio.</p>
+      <p>Trabalhamos com serviços de limpeza, portaria, recepção, jardinagem e terceirização de mão de obra em geral, atendendo empresas, condomínios e organizações de diversos segmentos.</p>
+      <p>Mais do que terceirizar serviços, nosso compromisso é garantir qualidade operacional, continuidade e confiança em cada contrato.</p>
+    </div>
+  </div>
+  <hr class="section-divider"/>
+
+  <div class="qs-missao">
+    <div class="qs-missao-left">
+      <h2>Missão</h2>
+      <p>Somos uma empresa especializada em terceirização de mão de obra, fundada em 2015, com o objetivo de oferecer soluções eficientes e confiáveis para empresas que buscam qualidade, continuidade e organização operacional.</p>
+      <p>Nossa atuação é baseada em gestão ativa, proximidade com o cliente e agilidade na tomada de decisões, garantindo que cada operação funcione com estabilidade, profissionais preparados e reposição rápida quando necessário.</p>
+      <p>Acreditamos que a terceirização deve trazer tranquilidade e eficiência para a empresa contratante. Por isso, cuidamos de toda a gestão de equipe, permitindo que nossos clientes foquem na estratégia, no crescimento e nos resultados do seu negócio.</p>
+      <p>Trabalhamos com serviços de limpeza, portaria, recepção, jardinagem e terceirização de mão de obra em geral, atendendo empresas, condomínios e organizações de diversos segmentos.</p>
+      <p>Mais do que terceirizar serviços, nosso compromisso é garantir qualidade operacional, continuidade e confiança em cada contrato.</p>
+    </div>
+    <div class="qs-missao-right qs-missao-square">
+      <img src="src/assets/images/qs-missao.jpg" alt="Missão"/>
+    </div>
+  </div>
+
+  <div class="qs-cards-section">
+    <h2 class="qs-cards-title">Núcleo</h2>
+    <div class="qs-cards">
+      <div class="qs-card"><img src="src/assets/images/visao.jpg" alt="Visão"/><div class="qs-card-body"><h3>Visão</h3><p>Ser a principal parceira estratégica em terceirização na nossa região, reconhecida pela agilidade e rigor técnico na entrega dos serviços.</p></div></div>
+      <div class="qs-card"><img src="src/assets/images/valores.jpg" alt="Valores"/><div class="qs-card-body"><h3>Valores</h3><ul><li>Comprometimento com o resultado</li><li>Valorização humana</li><li>Pontualidade</li><li>Transparência nas relações</li></ul></div></div>
+      <div class="qs-card"><img src="src/assets/images/diferencial.jpg" alt="Diferencial"/><div class="qs-card-body"><h3>Diferencial institucional</h3><p>Nosso modelo de operação foi construído para resolver as principais falhas do mercado de terceirização.</p><p style="margin-top:10px;">Garantimos continuidade de operação, profissionais preparados e uma gestão ativa, com foco em resultado e estabilidade.</p></div></div>
+    </div>
+  </div>
+
+  <footer><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><img class="logo-footer" src="src/assets/images/logo.png" alt="Núcleo Facilities"/></div><p class="tagline">Mais controle, menos<br>problemas, mais resultado.</p><p>Atuamos em todo o território nacional, desenvolvendo soluções estratégicas para empresas que buscam eficiência, qualidade e confiança operacional.</p></div><div class="footer-col"><h4>Soluções</h4><ul><li><a onclick="showPage('servicos')">Limpeza</a></li><li><a onclick="showPage('servicos')">Portaria</a></li><li><a onclick="showPage('servicos')">Recepção</a></li><li><a onclick="showPage('servicos')">Jardinagem</a></li><li><a onclick="showPage('servicos')">Terceirização de mão de obra</a></li></ul></div><div class="footer-col"><h4>Links rápidos</h4><ul><li><a onclick="showPage('home')">Home</a></li><li><a onclick="showPage('quemsomos')">Quem somos</a></li><li><a onclick="showPage('servicos')">Serviços</a></li><li><a onclick="showPage('diferenciais')">Diferenciais</a></li><li><a onclick="showPage('contato')">Contato</a></li></ul></div><div class="footer-col"><h4>Redes sociais</h4><div class="footer-social"><a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a><a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a><a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a></div><div class="footer-cta"><p>Vamos conversar sobre<br>o seu próximo projeto?</p><a href="#" class="btn-footer">Fale conosco <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></a></div></div></div><div class="footer-bottom"><p>© 2026 Núcleo facilities — Todos os direitos reservados</p><div class="footer-bottom-links"><a href="#">Política de Privacidade</a><span class="footer-bottom-sep">|</span><a href="#">Termos de uso</a></div></div></footer>
+</div>
+
+<!-- ============================================================
+     PAGE: SERVIÇOS
+     ============================================================ -->
+<div id="page-servicos" class="page">
+  <section class="hero"><img class="hero-bg-img" src="src/assets/images/hero-bg.jpg" alt=""/><div class="hero-content"><h1>Terceirização de mão de obra com excelência operacional</h1><p>Soluções completas para empresas que precisam de eficiência, continuidade e controle na operação, sem abrir mão da qualidade.</p><a href="#" class="btn-primary">Falar com um especialista</a></div></section>
+  <div class="clientes-carousel-section">
+  <div class="clientes-carousel-header">
+    <p class="clientes-eyebrow">Quem confia na Núcleo</p>
+    <h2>Empresas que escolheram a excelência operacional</h2>
+    <p>Construímos relações de longo prazo com empresas que valorizam continuidade, qualidade e um parceiro que nunca deixa postos descobertos.</p>
+  </div>
+  <div class="clientes-carousel-wrap">
+    <button class="clientes-carousel-btn clientes-prev" aria-label="Anterior">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <div class="clientes-stage">
+      <div class="clientes-slide active">
+          <div class="clientes-slide-logo">
+            <img src="src/assets/images/cliente-vw.png" alt="VW"/>
+          </div>
+          <p class="clientes-slide-text">"Parceria sólida, profissionais preparados e reposição ágil. A Núcleo entregou exatamente o que prometeu."</p>
+          <span class="clientes-slide-name">Volkswagen</span>
+        </div>
+      <div class="clientes-slide">
+          <div class="clientes-slide-logo">
+            <img src="src/assets/images/cliente-sinter.png" alt="S Sinter"/>
+          </div>
+          <p class="clientes-slide-text">"Desde que firmamos contrato, nunca tivemos um posto descoberto. Isso vale muito para a nossa operação."</p>
+          <span class="clientes-slide-name">S Sinter</span>
+        </div>
+      <div class="clientes-slide">
+          <div class="clientes-slide-logo">
+            <img src="src/assets/images/cliente-ginger.png" alt="Ginger"/>
+          </div>
+          <p class="clientes-slide-text">"A qualidade dos profissionais e a atenção da gestão fazem a diferença no dia a dia da nossa empresa."</p>
+          <span class="clientes-slide-name">Ginger Fragrâncias</span>
+        </div>
+      <div class="clientes-slide">
+          <div class="clientes-slide-logo">
+            <img src="src/assets/images/cliente-clicknet.png" alt="Clicknet"/>
+          </div>
+          <p class="clientes-slide-text">"Agilidade na resolução de problemas e equipe sempre alinhada ao nosso padrão. Recomendamos sem hesitar."</p>
+          <span class="clientes-slide-name">Clicknet Internet</span>
+        </div>
+    </div>
+    <button class="clientes-carousel-btn clientes-next" aria-label="Próximo">
+      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+  <div class="clientes-dots"></div>
+</div>
+
+  <!-- INTRODUÇÃO -->
+  <div class="srv-intro">
+    <div class="srv-intro-text">
+      <h2>Soluções completas para cada etapa da sua operação</h2>
+      <p>Estruturamos equipes de alta performance para empresas que não podem parar. Cada serviço é entregue com gestão ativa, reposição imediata e profissionais alinhados ao padrão exigido pelo contratante.</p>
+      <p>Atendemos empresas, condomínios e organizações de todos os segmentos em todo o território nacional, com contratos flexíveis e foco total em resultado.</p>
+      <div class="srv-stats">
+        <div class="srv-stat-item"><strong>+10</strong><span>Anos de mercado</span></div>
+        <div class="srv-stat-item"><strong>100%</strong><span>Postos cobertos</span></div>
+        <div class="srv-stat-item"><strong>24h</strong><span>Reposição garantida</span></div>
+      </div>
+    </div>
+    <div class="srv-intro-img">
+      <img src="src/assets/images/operacao.jpg" alt="Operação Núcleo"/>
+    </div>
+  </div>
+
+  <!-- CARROSSEL DE SERVIÇOS -->
+  <div class="srv-carousel-section">
+    <div class="srv-cards-header">
+      <p class="eyebrow">O que fazemos</p>
+      <h2>Nossos Serviços</h2>
+      <p>Cada solução é pensada para garantir continuidade, qualidade e tranquilidade operacional para a sua empresa.</p>
+    </div>
+
+    <div class="srv-carousel-wrap">
+      <button class="srv-carousel-btn srv-carousel-prev" aria-label="Anterior">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+
+      <div class="srv-carousel-track-outer">
+        <div class="srv-carousel-track" id="srvCarouselTrack">
+
+          <div class="srv-carousel-slide">
+            <img src="src/assets/images/servico-limpeza.jpg" alt="Limpeza"/>
+            <div class="srv-carousel-overlay"></div>
+            <div class="srv-carousel-content">
+              <h3>Limpeza</h3>
+              <p>Equipe treinada para manter ambientes corporativos, industriais e condominiais sempre limpos, organizados e dentro dos padrões de higiene exigidos pela sua empresa.</p>
+            </div>
+          </div>
+
+          <div class="srv-carousel-slide">
+            <img src="src/assets/images/portaria.jpg" alt="Portaria"/>
+            <div class="srv-carousel-overlay"></div>
+            <div class="srv-carousel-content">
+              <h3>Portaria</h3>
+              <p>Profissionais preparados para controle de acesso, recepção de visitantes e monitoramento de entrada e saída, garantindo segurança e organização no dia a dia.</p>
+            </div>
+          </div>
+
+          <div class="srv-carousel-slide">
+            <img src="src/assets/images/servico-recepcao.jpg" alt="Recepção"/>
+            <div class="srv-carousel-overlay"></div>
+            <div class="srv-carousel-content">
+              <h3>Recepção</h3>
+              <p>Recepcionistas cordiais, bem apresentados e alinhados à cultura da sua empresa — prontos para atender colaboradores, clientes e parceiros com excelência.</p>
+            </div>
+          </div>
+
+          <div class="srv-carousel-slide">
+            <img src="src/assets/images/jardim.jpg" alt="Jardinagem"/>
+            <div class="srv-carousel-overlay"></div>
+            <div class="srv-carousel-content">
+              <h3>Jardinagem</h3>
+              <p>Cuidamos dos espaços verdes internos e externos da sua empresa com periodicidade planejada, mantendo o ambiente agradável e bem conservado.</p>
+            </div>
+          </div>
+
+          <div class="srv-carousel-slide">
+            <img src="src/assets/images/servico-terceirizacao.jpg" alt="Terceirização"/>
+            <div class="srv-carousel-overlay"></div>
+            <div class="srv-carousel-content">
+              <h3>Terceirização de mão de obra</h3>
+              <p>Fornecemos profissionais para diversas funções operacionais com gestão ativa, reposição imediata e total alinhamento ao padrão exigido.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <button class="srv-carousel-btn srv-carousel-next" aria-label="Próximo">
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+
+    <div class="srv-carousel-dots" id="srvCarouselDots"></div>
+  </div>
+
+  <!-- CTA FINAL -->
+  <div class="srv-cta-new">
+    <div class="srv-cta-new-text">
+      <h3>Vamos conversar sobre a sua operação?</h3>
+      <p>Cada empresa tem suas próprias exigências operacionais. Fale com nossos especialistas e descubra como a Núcleo pode estruturar a solução ideal para o seu negócio.</p>
+    </div>
+    <a class="btn-cta-white" onclick="showPage('contato')">Falar com um especialista</a>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo"><img class="logo-footer" src="src/assets/images/logo.png" alt="Núcleo Facilities"/></div>
+        <p class="tagline">Mais controle, menos<br>problemas, mais resultado.</p>
+        <p>Atuamos em todo o território nacional, desenvolvendo soluções estratégicas para empresas que buscam eficiência, qualidade e confiança operacional.</p>
+      </div>
+      <div class="footer-col"><h4>Soluções</h4><ul><li><a onclick="showPage('servicos')">Limpeza</a></li><li><a onclick="showPage('servicos')">Portaria</a></li><li><a onclick="showPage('servicos')">Recepção</a></li><li><a onclick="showPage('servicos')">Jardinagem</a></li><li><a onclick="showPage('servicos')">Terceirização de mão de obra</a></li></ul></div>
+      <div class="footer-col"><h4>Links rápidos</h4><ul><li><a onclick="showPage('home')">Home</a></li><li><a onclick="showPage('quemsomos')">Quem somos</a></li><li><a onclick="showPage('servicos')">Serviços</a></li><li><a onclick="showPage('diferenciais')">Diferenciais</a></li><li><a onclick="showPage('contato')">Contato</a></li></ul></div>
+      <div class="footer-col"><h4>Redes sociais</h4>
+        <div class="footer-social">
+          <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        </div>
+        <div class="footer-cta"><p>Vamos conversar sobre<br>o seu próximo projeto?</p><a href="#" class="btn-footer">Fale conosco <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></a></div>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 Núcleo facilities — Todos os direitos reservados</p><div class="footer-bottom-links"><a href="#">Política de Privacidade</a><span class="footer-bottom-sep">|</span><a href="#">Termos de uso</a></div></div>
+  </footer>
+</div>
+
+<!-- ============================================================
+     PAGE: DIFERENCIAIS
+     ============================================================ -->
+<div id="page-diferenciais" class="page">
+  <section class="hero"><img class="hero-bg-img" src="src/assets/images/hero-bg.jpg" alt=""/><div class="hero-content"><h1>Terceirização de mão de obra com excelência operacional</h1><p>Soluções completas para empresas que precisam de eficiência, continuidade e controle na operação, sem abrir mão da qualidade.</p><a href="#" class="btn-primary">Falar com um especialista</a></div></section>
+  <div class="clientes-carousel-section">
+  <div class="clientes-carousel-header">
+    <p class="clientes-eyebrow">Quem confia na Núcleo</p>
+    <h2>Empresas que escolheram a excelência operacional</h2>
+    <p>Construímos relações de longo prazo com empresas que valorizam continuidade, qualidade e um parceiro que nunca deixa postos descobertos.</p>
+  </div>
+  <div class="clientes-carousel-wrap">
+    <button class="clientes-carousel-btn clientes-prev" aria-label="Anterior">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <div class="clientes-stage">
+      <div class="clientes-slide active">
+          <div class="clientes-slide-logo">
+            <img src="src/assets/images/cliente-vw.png" alt="VW"/>
+          </div>
+          <p class="clientes-slide-text">"Parceria sólida, profissionais preparados e reposição ágil. A Núcleo entregou exatamente o que prometeu."</p>
+          <span class="clientes-slide-name">Volkswagen</span>
+        </div>
+      <div class="clientes-slide">
+          <div class="clientes-slide-logo">
+            <img src="src/assets/images/cliente-sinter.png" alt="S Sinter"/>
+          </div>
+          <p class="clientes-slide-text">"Desde que firmamos contrato, nunca tivemos um posto descoberto. Isso vale muito para a nossa operação."</p>
+          <span class="clientes-slide-name">S Sinter</span>
+        </div>
+      <div class="clientes-slide">
+          <div class="clientes-slide-logo">
+            <img src="src/assets/images/cliente-ginger.png" alt="Ginger"/>
+          </div>
+          <p class="clientes-slide-text">"A qualidade dos profissionais e a atenção da gestão fazem a diferença no dia a dia da nossa empresa."</p>
+          <span class="clientes-slide-name">Ginger Fragrâncias</span>
+        </div>
+      <div class="clientes-slide">
+          <div class="clientes-slide-logo">
+            <img src="src/assets/images/cliente-clicknet.png" alt="Clicknet"/>
+          </div>
+          <p class="clientes-slide-text">"Agilidade na resolução de problemas e equipe sempre alinhada ao nosso padrão. Recomendamos sem hesitar."</p>
+          <span class="clientes-slide-name">Clicknet Internet</span>
+        </div>
+    </div>
+    <button class="clientes-carousel-btn clientes-next" aria-label="Próximo">
+      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+  <div class="clientes-dots"></div>
+</div>
+
+  <div class="dif-split">
+
+    <!-- LADO ESQUERDO — fundo branco -->
+    <div class="dif-left">
+      <h2 class="dif-intro-title">Por que escolher nossa empresa</h2>
+      <p class="dif-intro-text">A terceirização precisa funcionar de forma consistente. Nosso modelo foi estruturado para garantir continuidade, qualidade e confiança na operação.</p>
+
+      <div class="dif-left-item">
+        <h3>Reposição imediata</h3>
+        <p>Nunca deixamos postos descobertos.<br>Nossa operação garante continuidade total do serviço.</p>
+      </div>
+
+      <div class="dif-left-item">
+        <h3>Profissionais preparados</h3>
+        <p>Equipe treinada, educada e alinhada ao padrão de cada cliente.</p>
+      </div>
+    </div>
+
+    <!-- LADO DIREITO — fundo roxo -->
+    <div class="dif-right">
+      <div class="dif-right-item">
+        <h3>Gestão humanizada</h3>
+        <p>Valorizamos nossos colaboradores, garantindo motivação e melhor desempenho no dia a dia.</p>
+      </div>
+      <div class="dif-right-item">
+        <h3>Agilidade na tomada de decisão</h3>
+        <p>Resolvemos problemas com rapidez, sem burocracia e sem impacto na operação do cliente.</p>
+      </div>
+      <div class="dif-right-item">
+        <h3>Pagamento antecipado</h3>
+        <p>Garantimos estabilidade e motivação dos colaboradores, refletindo diretamente na qualidade do serviço.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BANNER CTA com imagem (dois homens apertando as mãos) -->
+  <div class="dif-cta-banner">
+    <img src="src/assets/images/equipe.jpg" alt="Parceria Núcleo Facilities"/>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo"><img class="logo-footer" src="src/assets/images/logo.png" alt="Núcleo Facilities"/></div>
+        <p class="tagline">Mais controle, menos<br>problemas, mais resultado.</p>
+        <p>Atuamos em todo o território nacional, desenvolvendo soluções estratégicas para empresas que buscam eficiência, qualidade e confiança operacional.</p>
+      </div>
+      <div class="footer-col"><h4>Soluções</h4><ul><li><a onclick="showPage('servicos')">Limpeza</a></li><li><a onclick="showPage('servicos')">Portaria</a></li><li><a onclick="showPage('servicos')">Recepção</a></li><li><a onclick="showPage('servicos')">Jardinagem</a></li><li><a onclick="showPage('servicos')">Terceirização de mão de obra</a></li></ul></div>
+      <div class="footer-col"><h4>Links rápidos</h4><ul><li><a onclick="showPage('home')">Home</a></li><li><a onclick="showPage('quemsomos')">Quem somos</a></li><li><a onclick="showPage('servicos')">Serviços</a></li><li><a onclick="showPage('diferenciais')">Diferenciais</a></li><li><a onclick="showPage('contato')">Contato</a></li></ul></div>
+      <div class="footer-col"><h4>Redes sociais</h4>
+        <div class="footer-social">
+          <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        </div>
+        <div class="footer-cta"><p>Vamos conversar sobre<br>o seu próximo projeto?</p><a href="#" class="btn-footer">Fale conosco <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></a></div>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 Núcleo facilities — Todos os direitos reservados</p><div class="footer-bottom-links"><a href="#">Política de Privacidade</a><span class="footer-bottom-sep">|</span><a href="#">Termos de uso</a></div></div>
+  </footer>
+</div>
+
+<!-- ============================================================
+     PAGE: CONTATO
+     ============================================================ -->
+<div id="page-contato" class="page">
+  <div class="contato-hero">
+    <p class="eyebrow">Contato</p>
+    <h2>Entre em Contato com a<br>Núcleo Facilities</h2>
+    <p class="subtitle">Respondemos em até 24 horas úteis</p>
+  </div>
+
+  <div class="contato-main">
+
+    <!-- FORMULÁRIO -->
+    <div class="contato-form-wrap">
+      <h3>Fale com nossos especialistas</h3>
+      <p class="form-subtitle">Preencha o formulário abaixo e nossa equipe entrará em contato para entender as necessidades da sua operação.</p>
+
+      <div id="form-error"></div>
+
+      <form id="contato-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+        <!-- Web3Forms config -->
+        <input type="hidden" name="access_key" value="2dff4350-ad6c-4c21-bafa-55b2969a9185"/>
+        <input type="hidden" name="subject" value="Novo contato — Núcleo Facilities"/>
+        <input type="hidden" name="from_name" value="Site Núcleo Facilities"/>
+        <!-- Honeypot anti-spam -->
+        <input type="text" name="botcheck" style="display:none" tabindex="-1" autocomplete="off"/>
+
+        <div class="form-group">
+          <label for="f-name">Nome completo <span class="required">*</span></label>
+          <input id="f-name" type="text" name="name" placeholder="Seu nome completo" autocomplete="name" required/>
+          <span class="field-error"></span>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="f-email">E-mail <span class="required">*</span></label>
+            <input id="f-email" type="email" name="email" placeholder="seu@email.com" autocomplete="email" required/>
+            <span class="field-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="f-phone">Telefone <span class="required">*</span></label>
+            <input id="f-phone" type="tel" name="phone" placeholder="(00) 00000-0000" autocomplete="tel" required/>
+            <span class="field-error"></span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="f-company">Empresa <span class="required">*</span></label>
+          <input id="f-company" type="text" name="company" placeholder="Nome da sua empresa" required/>
+          <span class="field-error"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="f-message">Mensagem <span class="required">*</span></label>
+          <textarea id="f-message" name="message" placeholder="Descreva brevemente suas necessidades ou objetivos..." required></textarea>
+          <span class="field-error"></span>
+        </div>
+
+        <button type="submit" class="btn-enviar">Enviar mensagem</button>
+      </form>
+
+      <!-- Sucesso -->
+      <div id="form-success">
+        <div class="success-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h3>Mensagem enviada com sucesso!</h3>
+        <p>Mensagem enviada com sucesso. Entraremos em contato em breve.</p>
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="contato-sidebar">
+
+      <div class="contato-info-card">
+        <div class="cic-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.083.535 4.037 1.471 5.737L0 24l6.437-1.436A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.793 9.793 0 01-4.99-1.363l-.356-.213-3.722.83.88-3.61-.233-.37A9.795 9.795 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg></div>
+        <p class="cic-label">Canal Preferencial</p>
+        <p class="cic-title">WhatsApp</p>
+        <p class="cic-value">(XX) XXXXX-XXXX</p>
+        <p class="cic-desc">Resposta imediata durante horário comercial.</p>
+        <a href="#" class="cic-btn">Iniciar conversa →</a>
+      </div>
+
+      <div class="contato-info-card">
+        <div class="cic-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div>
+        <p class="cic-label">Atendimento</p>
+        <p class="cic-title">Telefone</p>
+        <p class="cic-value">(XX) XXXXX-XXXX</p>
+        <p class="cic-desc">Seg a Sex, 9h às 18h.</p>
+        <a href="#" class="cic-btn">Ligar agora →</a>
+      </div>
+
+      <div class="contato-info-card">
+        <div class="cic-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+        <p class="cic-label">Projetos & Parcerias</p>
+        <p class="cic-title">E-mail</p>
+        <p class="cic-value" style="color:var(--color-text);font-size:13px;font-weight:400;">contato@nucleo.com</p>
+        <p class="cic-desc">Retorno em até 24 horas úteis.</p>
+        <a href="mailto:contato@nucleo.com" class="cic-btn">Enviar e-mail →</a>
+      </div>
+
+      <div class="contato-social-mini">
+        <h4>Acompanhe a Núcleo</h4>
+        <p>Siga nossas redes para novidades</p>
+        <div class="social-grid">
+          <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo"><img class="logo-footer" src="src/assets/images/logo.png" alt="Núcleo Facilities"/></div>
+        <p class="tagline">Mais controle, menos<br>problemas, mais resultado.</p>
+        <p>Atuamos em todo o território nacional, desenvolvendo soluções estratégicas para empresas que buscam eficiência, qualidade e confiança operacional.</p>
+      </div>
+      <div class="footer-col"><h4>Soluções</h4><ul><li><a onclick="showPage('servicos')">Limpeza</a></li><li><a onclick="showPage('servicos')">Portaria</a></li><li><a onclick="showPage('servicos')">Recepção</a></li><li><a onclick="showPage('servicos')">Jardinagem</a></li><li><a onclick="showPage('servicos')">Terceirização de mão de obra</a></li></ul></div>
+      <div class="footer-col"><h4>Links rápidos</h4><ul><li><a onclick="showPage('home')">Home</a></li><li><a onclick="showPage('quemsomos')">Quem somos</a></li><li><a onclick="showPage('servicos')">Serviços</a></li><li><a onclick="showPage('diferenciais')">Diferenciais</a></li><li><a onclick="showPage('contato')">Contato</a></li></ul></div>
+      <div class="footer-col"><h4>Redes sociais</h4>
+        <div class="footer-social">
+          <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        </div>
+        <div class="footer-cta"><p>Vamos conversar sobre<br>o seu próximo projeto?</p><a href="#" class="btn-footer">Fale conosco <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></a></div>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 Núcleo facilities — Todos os direitos reservados</p><div class="footer-bottom-links"><a href="#">Política de Privacidade</a><span class="footer-bottom-sep">|</span><a href="#">Termos de uso</a></div></div>
+  </footer>
+</div>
+
+<script src="src/js/main.js"></script>
+</body>
+</html>

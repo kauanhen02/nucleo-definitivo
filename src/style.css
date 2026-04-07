@@ -11,7 +11,7 @@
   --color-secondary:     #4339AA;   /* roxo — títulos, cards, ícones */
   --color-secondary-dark:#4339AA;   /* roxo hover */
   --color-navy:          #4339AA;   /* logos bar, clientes carousel */
-  --color-footer:        #2a2a2a;   /* footer — cinza escuro */
+  --color-footer:        #5a5a5a;   /* footer — cinza médio */
 
   /* ── Neutros ── */
   --color-white:         #ffffff;
@@ -409,8 +409,6 @@ hr.section-divider {
   width: auto;
   display: block;
   margin-bottom: 28px;
-  opacity: 0.55;
-  filter: saturate(0) brightness(0.3);
 }
 .service-item           { display: flex; align-items: center; gap: 14px; padding: 10px 0; font-size: var(--font-size-md); color: var(--color-text-light); border-bottom: 1px solid var(--color-border); }
 .service-item:first-of-type { border-top: 1px solid var(--color-border); }
@@ -1408,18 +1406,15 @@ footer {
   height: 68px;
   width: auto;
   display: block;
-  /* A logo tem fundo preto — filter para funcionar em nav branco */
-  filter: brightness(0) saturate(100%) invert(18%) sepia(90%) saturate(700%) hue-rotate(340deg) brightness(85%);
+
 }
 
 /* Footer */
 .logo-footer {
-  height: 36px;
+  height: 56px;
   width: auto;
   display: block;
-  /* No footer escuro, a logo fica natural mas invertemos o preto → branco */
   filter: brightness(0) invert(1);
-  opacity: 0.92;
   margin-bottom: 4px;
 }
 
@@ -1429,7 +1424,7 @@ footer {
   width: auto;
   display: block;
   margin: 0 auto 0;
-  filter: brightness(0) saturate(100%) invert(18%) sepia(90%) saturate(700%) hue-rotate(340deg) brightness(85%);
+
 }
 
 /* Quem somos — overlay (fundo escuro) */
@@ -1438,8 +1433,7 @@ footer {
   width: auto;
   display: block;
   margin: 0 auto 12px;
-  filter: brightness(0) invert(1);
-  opacity: 0.9;
+
 }
 
 /* Responsivo nav */
@@ -1483,8 +1477,8 @@ footer {
   height: 40px;
   width: auto;
   display: block;
-  filter: brightness(0) saturate(100%) invert(18%) sepia(90%) saturate(700%) hue-rotate(340deg) brightness(85%);
 }
+
 
 /* ============================================================
    LOGOS BAR — clientes no mobile
@@ -1495,7 +1489,6 @@ footer {
   max-width: 140px;
   object-fit: contain;
   opacity: 0.85;
-  filter: brightness(0) invert(1);
   transition: opacity 0.2s ease;
   flex-shrink: 0;
 }
@@ -1593,8 +1586,7 @@ footer {
   max-width: 160px;
   width: auto;
   object-fit: contain;
-  filter: brightness(0) invert(1);
-  opacity: 0.9;
+
 }
 
 .clientes-slide-text {
